@@ -1,0 +1,200 @@
+<html>
+  <head>
+    <title>BEE2 Package Maker</title>
+    <script type="text/javascript" src="https://raw.github.com/Stuk/jszip/master/jszip.js"></script>
+    <script src='FileSaver.js'></script>
+    <meta charset="utf-8" />
+    <style>
+      p {
+      display: inline;
+      }
+
+      input {
+      margin: 5px;
+      }
+
+      .style_tiles, .style_attr {
+      border: 1px solid #808080;
+      background: #9f9f9f;
+      }
+
+      /*#items, #styles, #music {
+      background: #eaeaea;
+      border: 1px solid #ccc;
+      padding: 5px;
+      list-style: none;
+      }*/
+
+      #package_desc {
+      height: 70px;
+      width: 100%;
+      overflow: hidden;
+      resize: none;
+      }
+      #resources li, #items li, #styles li, #music li {
+        background: #eaeaea;
+        border: 1px solid #ccc;
+        margin: 5px;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='packageform'>
+      <p>Package Name:</p><input id='package_name'><br>
+      <p>Package Description:</p><textarea id='package_desc'></textarea><br>
+      <p>Package Icon:</p><input type='file' id='package_icon'><br>
+      <br>
+      <button id='addresource' onclick='addResource()'>Add Resource</button><br>
+      <button id='additem' onclick='addItem()'>Add Item</button><br>
+      <button id='addstyle' onclick='addStyle()'>Add Style</button><br>
+      <button id='addmusic' onclick='addMusic()'>Add Music</button>
+      <h3>Resources</h3>
+      <ul id='resources'>
+        <li hidden class='copysource'>
+          <button onclick='del(this,"resource")'>delete</button>
+          <p>Source:</p>
+          <select onchange='updateResourceType(this)'>
+            <option>Preexisting</option>
+            <option>Upload</option>
+          </select><br>
+          <p>File:</p><input class='resource_file' onchange='updateResources()'>
+        </li>
+      </ul>
+      <h3>Items</h3>
+      <ul id='items'>
+        <li hidden class='copysource'>
+          <button onclick='del(this,"item")'>delete</button><br>
+          <p>Item Name:</p><input class='item_name'><br>
+          <p>Item Description:</p><input class='item_desc'><br>
+          <p>Icon:</p><select class='item_bee_icon rsrc' filetype='png'></select><br>
+          <p>Puzzlemaker Icon:</p><select class='item_pmaker_icon rsrc' filetype='vtf'><br>
+          <p>Model:</p><select class='item_pmaker_model rsrc' filetype='3ds'></select><br>
+          <p>Model Texture:</p><select class='item_pmaker_model_texture rsrc' filetype='vtf'></select><br>
+          <p>Instance:</p><select class='item_vmf rsrc' filetype='vmf'></select><br>
+          <p>Directional Handles:</p>
+          <input type='checkbox' class='item_handles'><br>
+          <p>Valid surfaces</p><br>
+          <p>Floor</p><input type='checkbox' class='item_surface_floor'><br>
+          <p>Ceiling</p><input type='checkbox' class='item_surface_ceil'><br>
+          <p>Walls</p><input type='checkbox' class='item_surface_wall'>
+        </li>
+      </ul>
+      <h3>Styles</h3>
+      <ul id='styles'>
+        <li hidden class='copysource'>
+          <button onclick='del(this,"style")'>delete</button><br>
+          <p>Style Name:</p><input class='style_name'><br>
+          <p>Style Description:</p><input class='style_desc'><br>
+          <p>Icon:</p><select class='style_icon rsrc' filetype='png'></select><br>
+          <p>Skybox:</p><input class='style_skybox'><br>
+          <p>Fog:</p>
+          <input placeholder='start distance'><input class='style_fog_0' type='color'>
+          <input placeholder='end distance'><input class='style_fog_1' type='color'><br>
+          <p>Tiles: </p><a>[+]</a><br>
+          <ul class='style_tiles'>
+            <li><input placeholder='material'><input placeholder='weight'><a>[x]</a></li>
+          </ul>
+          <p>Attributes: </p><a>[+]</a><a href='https://github.com/BEEmod/BEE2-items/wiki/vbsp_config_options'>[wiki]</a><br>
+          <ul class='style_attr'>
+            <li>
+              <select class='style_attr_key' onchange='updateDefault(this)'>
+                <option>goo_mist</option>
+                <option>remove_info_lighting</option>
+                <option>remove_pedestal_plat</option>
+                <option>remove_exit_signs</option>
+                <option>rotate_edge</option>
+                <option>reset_edge_off</option>
+                <option>edge_scale</option>
+                <option>rotate_edge_special</option>
+                <option>reset_edge_off_special</option>
+                <option>edge_scale_special</option>
+                <option>tile_texture_lock</option>
+                <option>fizz_border_vertical</option>
+                <option>fizz_border_thickness</option>
+                <option>fizz_border_repeat</option>
+                <option>force_brush_reflect</option>
+                <option>flip_sound_start</option>
+                <option>flip_sound_stop</option>
+                <option>staticPan</option>
+                <option>static_pan_temp_flat</option>
+                <option>static_pan_temp_white</option>
+                <option>static_pan_temp_black</option>
+                <option>dynamic_pan_temp</option>
+                <option>dynamic_pan_parent</option>
+                <option>ind_pan_check_switching</option>
+                <option>ind_pan_timer_switching</option>
+                <option>timer_sound</option>
+                <option>timer_sound_cc</option>
+                <option>signInst</option>
+                <option>signSize</option>
+                <option>signPack</option>
+                <option>broken_antline_chance</option>
+                <option>broken_antline_distance</option>
+                <option>goo_scale</option>
+                <option>pit_blend_light</option>
+                <option>glass_hole_temp</option>
+                <option>glass_pack</option>
+                <option>grating_pack</option>
+                <option>glass_template</option>
+                <option>grating_template</option>
+                <option>goo_wall_scale_temp</option>
+                <option>glass_floorbeam_temp</option>
+                <option>glass_floorbeam_sep</option>
+                <option>glass_hole_size_small</option>
+                <option>glass_hole_size_large</option>
+                <option>clump_wall_tex</option>
+                <option>clump_size</option>
+                <option>clump_width</option>
+                <option>clump_number</option>
+                <option>clump_ceil</option>
+                <option>clump_floor</option>
+                <option>global_pti_ents</option>
+                <option>global_pti_ents_loc</option>
+                <option>model_changer_loc</option>
+                <option>global_ents_loc</option>
+                <option>bee2_loc</option>
+                <option>game_id</option>
+                <option>music_instance</option>
+                <option>music_looplen</option>
+                <option>music_sync_tbeam</option>
+                <option>skybox</option>
+                <option>elev_type</option>
+                <option>elev_horiz</option>
+                <option>elev_vert</option>
+                <option>voice_id</option>
+                <option>voice_char</option>
+                <option>cave_port_skin</option>
+                <option>voice_studio_inst</option>
+                <option>voice_studio_inter_chance</option>
+                <option>voice_studio_cam_loc</option>
+                <option>voice_studio_cam_pitch</option>
+                <option>voice_studio_cam_yaw</option>
+                <option>voice_studio_actor</option>
+                <option>voice_studio_should_shoot</option>
+              </select>
+              <input class='style_attr_value' placeholder='False'><a>[x]</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h3>Music</h3>
+      <ul id='music'>
+        <li hidden class='copysource'>
+          <button onclick='del(this,"music")'>delete</button><br>
+          <p>Music Name:</p><input class='music_name'><br>
+          <p>Music Description:</p><input class='music_desc'><br>
+          <p>Short Music Description:</p><input class='music_desc'><br>
+          <p>Icon:</p><select class='music_icon rsrc' filetype='png'></select><br>
+          <p>Large Icon:</p><select class='music_icon_large rsrc' filetype='png'></select><br>
+          <p>Music:</p><select class='music_file rsrc' filetype='wav'></select><br>
+          <p>Funnel Music:</p><select class='music_file_funnel rsrc' filetype='wav'></select><br>
+          <p>Fast Music:</p><select class='music_file_speed rsrc' filetype='wav'></select><br>
+          <p>Preview Sound:</p><select class='music_file_preview rsrc' filetype='ogg'></select><br>
+        </li>
+      </ul>
+      <button id='makePackage' onclick='generate()'>Generate</button>
+    </div>
+    <script src='script.js'></script>
+  </body>
+</html>

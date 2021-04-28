@@ -1,0 +1,17 @@
+.icon-brand {
+  border-radius: 5px;
+  padding: 0 10px 0 0;
+}
+.bg-semidark {
+  background: var(--bs-gray-dark);
+}
+
+.img-bkg {
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
+}
+
+.main-body {
+  max-width: 800px;
+}

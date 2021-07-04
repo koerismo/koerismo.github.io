@@ -1,0 +1,56 @@
+#cardholder {
+	margin: 20px auto;
+}
+
+#cardholder > div {
+	background: var(--background-dark);
+	border: var(--border-dark);
+	padding: var(--padding-min);
+	margin: var(--margin-med);
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	margin-bottom: 0;
+}
+
+.projects {
+	width: min(calc(100vw - 20px), 600px);
+	margin-top: 0 !important;
+	margin-bottom: var(--margin-med) !important;
+	border-top: none !important;
+	border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
+	overflow: hidden;
+}
+
+.projects > div {
+	display: flex;
+	border-left: 0px solid #0000;
+	background: var(--background-dark);
+	transition: border-left 0.2s ease-out;
+	cursor: pointer;
+}
+
+.projects > div:hover {
+	border-left: 2px solid var(--tag-bg);
+	background: #121212;
+}
+
+.projects > div:hover .project-tag { font-size: 12px; }
+
+.projects > div span { padding: 0; }
+
+
+.project-tag {
+	margin: auto 0 auto auto;
+	text-align: center;
+	font-size: 10px;
+	font-weight: 800;
+	border-radius: 20px;
+	padding: 2px 8px !important;
+	color: var(--tag-fg);
+	background: var(--tag-bg);
+	transition: font-size 0.15s cubic-bezier(.25,.46,.45,.94);
+	text-transform: capitalize;
+}
+
+.tag-python, .tag-python *				{--tag-bg: #56c458; --tag-fg: #111;}
+.tag-javascript, .tag-javascript *		{--tag-bg: #aa5151; --tag-fg: #111;}
+.tag-source, .tag-source *				{--tag-bg: #db8132; --tag-fg: #000;}

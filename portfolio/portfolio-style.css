@@ -1,9 +1,0 @@
-.portfolio-table > div.row > div {
-  padding: 20px 0 0 0; /* Only pad on top. */
-}
-
-#showcaseCarousel {
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 0 10px;
-}

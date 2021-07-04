@@ -33,7 +33,7 @@
 	background: #121212;
 }
 
-.projects > div:hover .project-tag { font-size: 12px; }
+.projects > div:hover .project-tag { transform: scale(1.15) translateX(-2.5px); }
 
 .projects > div span { padding: 0; }
 
@@ -47,7 +47,7 @@
 	padding: 2px 8px !important;
 	color: var(--tag-fg);
 	background: var(--tag-bg);
-	transition: font-size 0.15s cubic-bezier(.25,.46,.45,.94);
+	transition: transform 0.15s cubic-bezier(.25,.46,.45,.94);
 	text-transform: capitalize;
 }
 

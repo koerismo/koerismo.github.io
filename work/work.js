@@ -45,6 +45,13 @@ const work_list = [
 				description:	'Blacklight is a small two-puzzle map designed for Valve\'s Portal 2.<br><br>The puzzle centers around the ability to enable/disable a secondary mode in which some objects are made visible/invisible.',
 				link:			'https://steamcommunity.com/sharedfiles/filedetails/?id=2463375496',
 				language:		'source'
+			},
+			{
+				name:			'Trios (Portal 2)',
+				short:			'Trios',
+				description:	'Trios is a recreation of an older puzzle centered around lasers.',
+				link:			'https://steamcommunity.com/sharedfiles/filedetails/?id=2542305924',
+				language:		'source'
 			}
 		]
 	}

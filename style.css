@@ -355,6 +355,11 @@ footer > span:hover {
 	#work #work-info {
 		text-align: center;
 	}
+
+	/* Show title/subtitles automatically on mobile */
+	#work-carousel div.slick-slide img { opacity: 0.7 }
+	#work-carousel div.slick-slide span { bottom: 2px }
+	#work-carousel div.slick-slide h4 { bottom: 18px }
 	
 	footer {
 		font-size: 14px;

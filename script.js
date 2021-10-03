@@ -99,6 +99,20 @@ Vue.createApp({
 
 $('#work-carousel').slick({
 	infinite: true,
-	slidesToShow: 3,
-	dots: true
+	slidesToShow: 4,
+	dots: true,
+	responsive: [
+		{
+			breakpoint: 1200,
+			settings: { slidesToShow: 3 }
+		},
+		{
+			breakpoint: 850,
+			settings: { slidesToShow: 2 }
+		},
+		{
+			breakpoint: 550,
+			settings: { slidesToShow: 1 }
+		}
+	]
 });

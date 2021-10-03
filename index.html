@@ -23,7 +23,7 @@
 				</ul>
 				<span id="splash-continue">↓</span>
 			</div>
-			<img src="https://cdn.discordapp.com/attachments/767189656776605700/894245081295495188/info_player_starting.png">
+			<img src="https://www.dl.dropboxusercontent.com/s/ughd8jzp2pxn43b/info_player_starting.png">
 		</section>
 		<section id="about">
 			<div>
@@ -44,13 +44,13 @@
 		<section id="work">
 			<div id="work-info">
 				<h2>My Work</h2>
-				<p>A few of my favourite projects that I've made.</p>
+				<p>Here are a few of my favourite code-related projects that I've done.</p>
 			</div>
 			<div id="work-carousel">
 				<div v-for="x in work">
 					<h4>{{ x.title }}</h4>
 					<span>{{ x.subtitle }}</span>
-					<a v-bind:href="x.link"><img v-bind:src="x.image" title="HTML5"></a>
+					<a v-bind:href="x.link" target='_blank'><img v-bind:src="x.image"></a>
 				</div>
 			</div>
 		</section>

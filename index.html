@@ -13,6 +13,11 @@
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css'><link rel="stylesheet" href="./style.css">
 </head>
 	<body>
+
+		<div id="loader" style="opacity: 1; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000; display: flex; z-index: 100;">	
+			<img style="margin: auto; width: 10vw; height: 10vh; object-fit: contain;" src="assets/loader.svg">
+		</div>
+
 		<section id="splash">
 			<div>
 				<span>Koerismo</span>
@@ -70,6 +75,17 @@
 				- Vue
 				- GSAP
 		-->
+
+		<!-- Loader handling to make the website loading phase pretty. -->
+		<script>
+			document.onreadystatechange = (x) => {
+				if (document.readyState == 'complete') {
+					gsap.to('#loader img',{ opacity: 0, scale:0.8, duration: 0.4, ease: 'power4.in' })
+					gsap.to('#loader',{ opacity: 0, duration: 0.8, delay: 0.3, onComplete: ()=>{$('#loader').hide()} })
+				}
+			}
+		</script>
+
 		<script  src="./script.js"></script>
 	</body>
 </html>

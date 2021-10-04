@@ -106,7 +106,7 @@ Vue.createApp({
 					'title': 'wav.js',
 					'subtitle': 'A pure JS wav data parser.',
 					'image': 'https://www.dl.dropboxusercontent.com/s/6707of6nwwx3ab4/no_icon.png',
-					'link': 'https://github.com/koerismo/wav.js/blob/main/wav.js'
+					'link': 'https://github.com/koerismo/wav.js'
 				},
 				{
 					'title': 'KV.py',

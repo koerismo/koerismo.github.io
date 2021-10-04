@@ -42,9 +42,9 @@ sc.addListener({
 const splash_shortcuts = $('#splash ul');
 sc.addListener({
 	'begin': {
-		'element': '#splash',
+		'element': 'body',
 		'position': 0,
-		'screen-position': 'top'
+		'screen-position': 'bottom'
 	},
 	'end': {
 		'element': '#splash',
@@ -55,6 +55,33 @@ sc.addListener({
 	'callback': (pos)=>{
 		if (pos == 'enter') {splash_shortcuts.removeClass('mini')}
 		else { splash_shortcuts.addClass('mini') }
+	}
+})
+
+// Animated card for #about
+
+const about_details_anim = gsap.timeline({})
+		.from('#about #about-flex-table img', { opacity: 0, x: -50, duration: 0.5, stagger: 0.06, ease: 'power4.out' })
+		.from('#about #about-details h2', { opacity: 0, x:-50, duration: 1, ease: 'power4.out' }, '-=0.6')
+		.from('#about #about-details p', { opacity: 0, x:-50, duration: 1.2, ease: 'power4.out' }, '-=0.8')
+
+sc.addListener({
+	'begin': {
+		'element': '#about > div',
+		'position': 0,
+		'screen-position': 'bottom'
+	},
+	'end': {
+		'element': '#about > div',
+		'position': 1,
+		'screen-position': 'top'
+	},
+	'type':		'event',
+	'callback': (pos)=>{
+		if (pos == 'enter') {
+			about_details_anim.seek(0);
+			about_details_anim.play();
+		}
 	}
 })
 

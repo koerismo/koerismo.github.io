@@ -32,7 +32,7 @@ sc.addListener({
 	},
 	'type':		'position',
 	'callback': (pos)=>{
-		splash_img.style.top = (pos*30 - 0) + 'vh';
+		splash_img.style.top = (pos*50) + 'vh';
 		splash_img.style.opacity = 1 - Math.max(pos-0.5,0) * 2;
 		// Maybe this is a bit too graphics-intensive
 		// splash_img.style.filter = `blur(${Math.max(pos-0.5,0)*20}px)`;

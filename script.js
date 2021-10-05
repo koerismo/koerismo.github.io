@@ -92,26 +92,26 @@ Vue.createApp({
 		return {work: [
 				{
 					'title': 'BeePKG v2.0',
-					'subtitle': 'A web-based package creation tool.',
-					'image': 'https://www.dl.dropboxusercontent.com/s/6707of6nwwx3ab4/no_icon.png',
+					'subtitle': 'A web-based BEE package creation tool.',
+					'image': 'https://i.imgur.com/fKIdFfc.png',
 					'link': 'https://github.com/koerismo/BeePKG-V2'
 				},
 				{
 					'title': 'vtf.js',
 					'subtitle': 'A pure JS image to VTF converter.',
-					'image': 'https://www.dl.dropboxusercontent.com/s/6707of6nwwx3ab4/no_icon.png',
+					'image': 'https://i.imgur.com/jiycc6a.png',
 					'link': 'https://github.com/koerismo/vtf.js'
 				},
 				{
 					'title': 'wav.js',
 					'subtitle': 'A pure JS wav data parser.',
-					'image': 'https://www.dl.dropboxusercontent.com/s/6707of6nwwx3ab4/no_icon.png',
+					'image': 'https://i.imgur.com/QqZ1aMp.png',
 					'link': 'https://github.com/koerismo/wav.js'
 				},
 				{
-					'title': 'KV.py',
+					'title': 'kv.py',
 					'subtitle': 'A flexible python k/v structure container.',
-					'image': 'https://www.dl.dropboxusercontent.com/s/6707of6nwwx3ab4/no_icon.png',
+					'image': 'https://i.imgur.com/O4lDrok.png',
 					'link': 'https://github.com/koerismo/python-kv-pairs'
 				}/*,
 				{

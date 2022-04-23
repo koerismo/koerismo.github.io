@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>K - Home</title>
+		<title>Home</title>
 		<link href="/css/global.css" rel="stylesheet"/>
 		<link href="/css/work.css" rel="stylesheet"/>
+		<link href="/assets/images/favicon.png" rel="icon"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 
 	<body>
@@ -27,21 +29,33 @@
 		</div>
 
 		<div class="body environment">
-			<div class="c2" data-url="/assets/images/test.png"></div>
-			<div class="" data-url="/assets/images/test.png"></div>
-			<div class="c3 r2" data-url="/assets/images/test.png"></div>
-			<div class="r2" data-url="/assets/images/test.png"></div>
-			<div class="c2" data-url="/assets/images/test.png"></div>
-			<div class="" data-url="/assets/images/test.png"></div>
-			<div class="" data-url="/assets/images/test.png"></div>
+			<div class="c2" data-url="/assets/images/test/testphoto-0.jpg"></div>
+			<div class="" data-url="/assets/images/test/testphoto-1.jpg"></div>
+			<div class="c3 r2" data-url="/assets/images/test/testphoto-2.jpg"></div>
+			<div class="r2" data-url="/assets/images/test/testphoto-3.jpg"></div>
+			<div class="c2" data-url="/assets/images/test/testphoto-4.jpg"></div>
+			<div class="" data-url="/assets/images/test/testphoto-5.jpg"></div>
+			<div class="" data-url="/assets/images/test/testphoto-0.jpg"></div>
+		</div>
+
+		<div id="image-viewer">
+			<div></div>
 		</div>
 
 		<div class="body audio">
-			
+			<div data-url="/assets/audio/snippet_helix.ogg" data-title="Helix (Sample)"></div>
+			<div data-url="/assets/audio/snippet_beeps.ogg" data-title="Beeps (Sample)"></div>
+			<div data-url="/assets/audio/snippet_feed.ogg" data-title="Feed (Sample)"></div>
+			<div data-url="/assets/audio/test.mp3" data-title="Place holder"></div>
 		</div>
 
-		<div id="viewer">
-			<div></div>
+		<div id="audio-player">
+			<div id="audio-player-body">
+				<span id="song-position">00:00</span>
+				<span id="song-title">Title</span>
+				<span id="song-duration">00:00</span>
+				<input type="range" step="0.01" />
+			</div>
 		</div>
 
 		<script type="module" src="/scripts/work.js"></script>

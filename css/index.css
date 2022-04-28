@@ -1,0 +1,71 @@
+body {
+	/* background-image: url('/assets/images/home_bg.svg'); */
+	background-image: url('/assets/images/home_bg.png');
+	background-size: auto 100%;
+	background-position: center;
+
+	flex-direction: row;
+}
+
+div.container {
+	margin: 25vh 0 0 0;
+	margin-left: 50px;
+	margin-left: max(calc(40vw - 250px), 50px);
+
+	line-height: 1;
+}
+
+div.title-container h1 {
+	margin: 0;
+	color: var(--fg-primary);
+
+	font-family: 'D-DIN Exp', sans-serif;
+	font-weight: 100;
+	font-size: 50pt;
+}
+
+div.title-container ul {
+	display: flex;
+	gap: 4px;
+	margin: 0;
+	padding: 0 10px;
+
+	list-style: '-';
+	color: var(--fg-primary);
+	font-family: 'Univers 47 CondensedLight';
+	font-weight: 100;
+	font-size: 12pt;
+}
+
+div.title-container ul > li {
+	padding: 0 8px;
+}
+
+div.title-container ul > li:first-child {
+	list-style: none;
+}
+
+div.directory {
+	margin-top: 100px;
+}
+
+div.directory a {
+	display: inline-block;
+	color: var(--fg-primary);
+	text-decoration: none;
+	font-family: 'Univers 67 CondensedBold', sans-serif;
+	font-variant: all-small-caps;
+	font-size: 18px;
+	padding: 0 4px;
+	position: relative;
+}
+
+div.directory a:not(a[href])::after {
+	content: '';
+	position: absolute;
+	left: 4px;
+	right: 4px;
+	height: 1px;
+	background: var(--fg-primary);
+	bottom: 1px;
+}

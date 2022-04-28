@@ -1,3 +1,7 @@
+:root {
+	--fg-error: #ff4848;
+}
+
 body {
 	overflow-y: scroll;
 }
@@ -33,16 +37,8 @@ body {
 
 
 @keyframes body-show {
-	from {
-		opacity: 0;
-		position: relative;
-		top: 50px;
-	}
-	to {
-		opacity: 1;
-		position: relative;
-		top: 0px;
-	}
+	from	{ opacity: 0 }
+	to		{ opacity: 1 }
 }
 
 
@@ -220,6 +216,7 @@ div.body.audio {
 
 
 div.body.audio > div {
+	cursor: pointer;
 	border: 1px solid var(--fg-secondary);
 	width: 128px;
 	height: 128px;
@@ -274,6 +271,16 @@ div.body.audio > div.active > span {
 	background-color: transparent;
 	/* text-shadow: -2px 0px 0 var(--fg-secondary); */
 	color: var(--bg-primary);
+}
+
+div.body.audio > div.error {
+	cursor: default;
+	animation: song-select 0.8s cubic-bezier(.17,.84,.44,1);
+	--fg-secondary: var(--fg-error);
+}
+
+div.body.audio > div.error > a {
+	background-image: url('/assets/images/btn_error.svg');
 }
 
 /* AUDIO PLAYER */

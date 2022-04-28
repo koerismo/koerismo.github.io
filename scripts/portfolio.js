@@ -98,10 +98,10 @@ const audiop_el = $('div#audio-player'),
 	  audiop_duration_el = $('div#audio-player span#song-duration')[0];
 
 
-let audio_currently_selected = null;
-let audio_currently_playing = null;
-let audio_last_playing = null;
-let audio_players = {};
+let audio_currently_selected = null;	// Element
+let audio_currently_playing = null;		// URL
+let audio_last_playing = null;			// URL
+let audio_players = {};					// dict{ URL: Audio, }
 
 function audio_stop_playing() {
 	audiop_el.removeClass('active');
@@ -111,11 +111,9 @@ function audio_stop_playing() {
 	audio_last_playing = audio_currently_playing;
 	audio_currently_playing = null;
 }
-function audio_begin_playing( url ) {
 
-	if (audio_currently_playing !== null) {
-		audio_stop_playing()
-	}
+function audio_begin_playing( url ) {
+	if (audio_currently_playing !== null) { audio_stop_playing() }
 
 	audio_currently_playing = url;
 	if (url in audio_players) {
@@ -134,15 +132,16 @@ function audio_begin_playing( url ) {
 		initialize_audio_interface();
 		audiop_el.addClass('active');
 	}
+	audio_players[url].onerror = () => { audio_currently_selected.classList.add('error'); audio_currently_selected.classList.remove('active'); }
 	audio_players[url].onpause = () => { audiop_el.removeClass('active'); }
 	audio_players[url].autoplay = true;
 	audio_players[url].src = url;
 }
 
-function format_mmss( seconds ) {
-	const d = new Intl.DateTimeFormat('EN-US', {minute: 'numeric', second: 'numeric'});
-	return d.format( seconds*1000 );
-}
+// Format second timestamps to MM:SS for use in the audio player.
+// shit perf, could probably do this manually with math
+const time_format_mmss = new Intl.DateTimeFormat('EN-US', {minute: 'numeric', second: 'numeric'});
+function format_mmss( seconds ) { return time_format_mmss.format( seconds*1000 ) }
 
 function initialize_audio_interface() {
 	audio_players[audio_currently_playing].onended = () => {
@@ -169,7 +168,7 @@ function update_audio_interface_interval() {
 	setTimeout( update_audio_interface_interval, 50 );
 }
 
-
+// Initialize tracks for viewing.
 Array.from($('div.body.audio > div')).forEach( div => {
 	const title_span = document.createElement('span');
 	title_span.innerText = div.getAttribute('data-title').replaceAll('\\n','\n');
@@ -179,7 +178,9 @@ Array.from($('div.body.audio > div')).forEach( div => {
 	div.appendChild( audio_btn );
 });
 
+// Register listeners for tracm play event.
 $('div.body.audio > div').on( 'click', function(){
+	if (this.classList.contains('error')) {return}
 	const isPlaying = this.classList.contains('active');
 	$('div.body.audio > div').removeClass('active');
 	if (isPlaying) { return audio_stop_playing() }

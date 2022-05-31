@@ -1,0 +1,82 @@
+/* UNIVERS */
+
+@font-face {
+    font-family: 'Univers';
+    src: url('/assets/webfont/Univers-Light.otf') format('opentype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Univers';
+    src: url('/assets/webfont/Univers.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Univers';
+    src: url('/assets/webfont/Univers-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Univers';
+    src: url('/assets/webfont/Univers-Black.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Univers';
+    src: url('/assets/webfont/Univers-ExtraBlack.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* UNIVERS CONDENSED */
+
+@font-face {
+    font-family: 'Univers Condensed';
+    src: url('/assets/webfont/Univers-CondensedLight.otf') format('opentype');
+    font-weight: lighter;
+    font-style: lighter;
+}
+
+@font-face {
+    font-family: 'Univers Condensed';
+    src: url('/assets/webfont/Univers-Condensed.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Univers Condensed';
+    src: url('/assets/webfont/Univers-CondensedBold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* UNIVERS CONDENSED ITALIC */
+
+@font-face {
+    font-family: 'Univers Condensed';
+    src: url('/assets/webfont/Univers-CondensedLtOblique.otf') format('opentype');
+    font-weight: lighter;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Univers Condensed';
+    src: url('/assets/webfont/Univers-CondensedOblique.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Univers Condensed';
+    src: url('/assets/webfont/Univers-CondensedBdOblique.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}

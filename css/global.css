@@ -1,4 +1,12 @@
 :root {
+	--bg-main: #222;
+	--fg-main: #eee;
+	--bg-subheader: #2b2b2b;
+	--fg-subheader: #444;
+	--cl-subheader: #888;
+	--bg-header: var(--bg-main);
+	--fg-header: var(--fg-main);
+
 	--bg-primary: #191919;
 	--bg-secondary: #132326;
 	--fg-primary: #eee;
@@ -10,8 +18,8 @@ body, html {
 	margin: 0;
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
-	background-color: var(--bg-primary);
-	color: var(--fg-secondary);
+	background-color: var(--bg-main);
+	color: var(--fg-main);
 }
 
 body {
@@ -24,6 +32,7 @@ body {
 	padding: 14px;
 	display: flex;
 	border-bottom: var(--fg-secondary) 1px solid;
+	background-color: var(--bg-header);
 }
 
 .header img {
@@ -36,7 +45,7 @@ body {
 }
 
 .header div a {
-	color: var(--fg-secondary);
+	color: var(--fg-header);
 	text-decoration: none;
 	font-family: 'Univers 57 Condensed', sans-serif;
 	font-variant: all-small-caps;

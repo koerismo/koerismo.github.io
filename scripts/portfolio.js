@@ -24,6 +24,12 @@ const actions = {
 /* ------------------ ENVIRONMENTS PAGE ------------------ */
 
 
+function get_browser() {
+	const match = window.navigator.userAgent.match(/\w+\/[\d\.]+$/g);
+	const [agent, version] = match[0].split('/');
+	return agent;
+}
+
 // The image cache is used to recall the images' dimensions.
 let environment_loaded = false;
 let cached_images = {};
@@ -34,11 +40,17 @@ function load_environment() {
 	
 	Array.from($('div.body.environment div')).forEach((div)=>{
 		const url = div.getAttribute('data-url');
-		div.style.backgroundImage = `url(${url})`;
-		if (url in cached_images) { return div.classList.add('loaded') } // Quick optimization for duplicate images
-		cached_images[url] = new Image();
-		cached_images[url].onload = () => {div.classList.add('loaded')}
-		cached_images[url].src = url;
+		const img = new Image();
+		cached_images[url] = {
+			width: 0, height: 0
+		};
+		img.onload = () => {
+			cached_images[url].width = img.width;
+			cached_images[url].height = img.height;
+			div.classList.add('loaded')
+		}
+		img.src = url;
+		div.appendChild(img);
 	});
 }
 

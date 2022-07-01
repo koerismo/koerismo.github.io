@@ -38,7 +38,7 @@ function load_environment() {
 	if (environment_loaded) { return }
 	environment_loaded = true;
 	
-	Array.from($('div.body.environment div')).forEach((div)=>{
+	Array.from($('div.body.environment div.img')).forEach((div)=>{
 		const url = div.getAttribute('data-url');
 		const img = new Image();
 		cached_images[url] = {
@@ -57,7 +57,7 @@ function load_environment() {
 const viewer_bg = $('#image-viewer');
 const viewer = viewer_bg.children()[0];
 
-$('div.body.environment div').on( 'click', function(){
+$('div.body.environment div.img').on( 'click', function(){
 
 	// Ensure that the image has loaded
 	if (!this.classList.contains('loaded')) { return }
@@ -99,6 +99,11 @@ viewer_bg.on( 'click', function(e){
 
 
 /* ------------------ AUDIO PAGE ------------------ */
+
+
+function preload_image( img ) { new Image().src = img; }
+preload_image( '/assets/images/btn_pause.svg' );
+preload_image( '/assets/images/btn_error.svg' );
 
 
 // Just a warning, this part is where the code gets *bad*.

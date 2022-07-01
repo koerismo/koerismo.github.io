@@ -31,8 +31,8 @@ div.title-container ul {
 	padding: 0 10px;
 
 	list-style: '-';
-	color: var(--fg-primary);
-	font-family: 'Univers 47 CondensedLight';
+	color: var(--fg-main);
+	font-family: 'Univers Condensed';
 	font-weight: 100;
 	font-size: 12pt;
 }
@@ -47,15 +47,18 @@ div.title-container ul > li:first-child {
 
 div.directory {
 	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
 }
 
 div.directory a {
+	margin-right: auto;
 	display: inline-block;
-	color: var(--fg-primary);
+	color: var(--fg-main);
 	text-decoration: none;
-	font-family: 'Univers 67 CondensedBold', sans-serif;
+	font-family: 'Univers Condensed', sans-serif;
 	font-variant: all-small-caps;
-	font-size: 18px;
+	font-size: 20px;
 	padding: 0 4px;
 	position: relative;
 }
@@ -66,6 +69,10 @@ div.directory a:not(a[href])::after {
 	left: 4px;
 	right: 4px;
 	height: 1px;
-	background: var(--fg-primary);
+	background: var(--fg-main);
 	bottom: 1px;
+}
+
+div.directory a[href]:hover {
+	color: #888;
 }

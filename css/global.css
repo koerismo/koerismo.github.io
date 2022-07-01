@@ -1,17 +1,17 @@
 :root {
 	--bg-main: #222;
 	--fg-main: #eee;
-	--bg-subheader: #2b2b2b;
+	--bg-subheader: #282828;
 	--fg-subheader: #444;
 	--cl-subheader: #888;
 	--bg-header: var(--bg-main);
 	--fg-header: var(--fg-main);
 
-	--bg-primary: #191919;
+	/* --bg-primary: #191919;
 	--bg-secondary: #132326;
-	--fg-primary: #eee;
+	--fg-primary: #eee; */
 	--fg-secondary: #21B1CD;
-	--fg-tertiary: #1d3c42;
+	/* --fg-tertiary: #1d3c42; */
 }
 
 body, html {
@@ -54,6 +54,10 @@ body {
 	position: relative;
 }
 
+.header div a[href]:hover {
+	color: #888;
+}
+
 .header div a:not(a[href])::after {
 	content: '';
 	position: absolute;
@@ -63,3 +67,19 @@ body {
 	background: var(--fg-secondary);
 	bottom: 1px;
 }
+
+
+div#contact {
+	display: flex;
+	justify-content: center;
+	margin: auto 0 30px 0;
+}
+
+div#contact a {
+	margin: 0 5px;
+	padding: 0 10px;
+	opacity: 1;
+}
+
+div#contact img { width: 18px }
+div#contact a:hover { opacity: 0.7 }

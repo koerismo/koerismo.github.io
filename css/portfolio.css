@@ -96,10 +96,12 @@ div.body.programming > div {
 
 div.body.environment.active {
 	display: grid;
-	margin: 30px auto;
+	margin: 10px auto 30px auto;
 	grid-template-columns: repeat(3, 1fr);
-	grid-auto-rows: calc(min(90vw, 700px) / 3);
+	grid-auto-rows: auto;
 	grid-gap: 10px;
+
+	--image-height: calc(min(90vw, 700px) / 3);
 }
 
 @keyframes image-loading {
@@ -108,41 +110,51 @@ div.body.environment.active {
 	100% { opacity: 1.0 }
 }
 
-div.body.environment > div {
+div.body.environment > div.img {
 	position: relative;
 	background-color: var(--bg-subheader);
 	background-size: cover;
 	background-position: center;
 }
 
-div.body.environment > div:not(div.loaded) {
+div.body.environment > div.img:not(div.loaded) {
 	background-image: none !important;
 	animation: image-loading 1.1s cubic-bezier(.45,.05,.55,.95) infinite;
 	background-color: var(--bg-subheader);
 }
 
-div.body.environment > div.loaded {
+div.body.environment > div.img.loaded {
 	cursor: pointer;
 	transition: filter 0.5s cubic-bezier(.17,.84,.44,1);
 }
 
-div.body.environment > div.loaded:hover {
+div.body.environment > div.img.loaded:hover {
 	filter: brightness(1.2);
 }
 
 
-div.body.environment > div > img { display: none; }
-div.body.environment > div.loaded > img {
+div.body.environment > div.img > img { display: none; }
+div.body.environment > div.img.loaded > img {
 	display: block;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
+div.body.environment > div.separate {
+	grid-column: 1 / 4;
+	grid-row: span 1;
 
-div.body.environment > div.r2 { grid-row-start: span 2; }
-div.body.environment > div.c2 { grid-column-start: span 2; }
-div.body.environment > div.c3 { grid-column-start: span 3; }
+	padding: 20px 0 4px 0;
+	border-bottom: 1px solid var(--fg-subheader);
+	font-size: 10pt;
+}
+
+
+div.body.environment > div.img    { height: var(--image-height); }
+div.body.environment > div.img.r2 { grid-row-start: span 2; height: calc(var(--image-height) * 2); }
+div.body.environment > div.img.c2 { grid-column-start: span 2; }
+div.body.environment > div.img.c3 { grid-column-start: span 3; }
 
 @keyframes show-viewer {
 	from {
@@ -224,12 +236,12 @@ div.body.audio {
 
 
 @keyframes song-select {
-	from	{ box-shadow: 0 0 0 0px var(--fg-subheader) }
+	from	{ box-shadow: 0 0 0 0px var(--cl-subheader) }
 	to		{ box-shadow: 0 0 0 6px #0000 }
 }
 
 @keyframes song-deselect {
-	from	{ box-shadow: 0 0 0 0px var(--fg-subheader) inset }
+	from	{ box-shadow: 0 0 0 0px var(--cl-subheader) inset }
 	to		{ box-shadow: 0 0 0 6px #0000 inset }
 }
 
@@ -241,7 +253,6 @@ div.body.audio > div {
 	height: 128px;
 	position: relative;
 	user-select: none;
-
 	border-top-right-radius: 10px;
 }
 
@@ -249,12 +260,13 @@ div.body.audio > div > span {
 	display: block;
 	white-space: break-spaces;
 	max-width: 96px;
-	margin: 5px 0 0 -2px;
-	padding: 5px 0 3px 0;
+	margin: 5px 0 0 -3px;
+	padding: 6px 0;
 
-	font-family: 'Univers ExtraBlack', sans-serif;
+	font-family: 'Univers', sans-serif;
 	font-variant: all-small-caps;
-	line-height: 0.7em;
+	font-weight: 900;
+	line-height: 0.9em;
 	font-size: 16pt;
 
 	background-color: var(--bg-main);
@@ -295,7 +307,7 @@ div.body.audio > div.active > span {
 div.body.audio > div.error {
 	cursor: default;
 	animation: song-select 0.8s cubic-bezier(.17,.84,.44,1);
-	--fg-subheader: var(--fg-error);
+	--cl-subheader: var(--fg-error);
 }
 
 div.body.audio > div.error > a {
